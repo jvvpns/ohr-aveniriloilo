@@ -56,7 +56,7 @@ export default function LocationAmenitiesEnhanced() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
+    <section className="py-12 md:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -69,7 +69,7 @@ export default function LocationAmenitiesEnhanced() {
           <div className="flex justify-center">
             <div className="h-1 w-16 bg-accent rounded-full"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-serif text-ohr-navy font-bold">
+          <h2 className="text-3xl md:text-5xl font-serif text-ohr-navy font-bold leading-tight">
             Prime Location
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
@@ -150,7 +150,7 @@ export default function LocationAmenitiesEnhanced() {
                   <MapPin className="w-5 h-5" />
                   <span>The Address</span>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-serif text-ohr-navy font-bold leading-tight">
+                <h3 className="text-2xl md:text-4xl font-serif text-ohr-navy font-bold leading-tight">
                   Where Opportunity Meets Lifestyle
                 </h3>
                 <p className="text-gray-600 text-lg">

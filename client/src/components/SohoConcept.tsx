@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Zap, Maximize, Wifi, Shield } from 'lucide-react';
 
 const SohoConcept = () => {
   const features = [
@@ -44,7 +45,7 @@ const SohoConcept = () => {
   };
 
   return (
-    <section className='relative py-20 md:py-32 bg-gradient-to-b from-background via-background to-accent/5 overflow-hidden'>
+    <section className='relative py-12 md:py-32 bg-gradient-to-b from-background via-background to-accent/5 overflow-hidden'>
       <div className='container mx-auto'>
         {/* Section Header */}
         <motion.div
@@ -110,10 +111,10 @@ const SohoConcept = () => {
             </h3>
             <div className='space-y-6'>
               {[
-                { label: '100% Power Back-up', desc: 'Uninterrupted power supply for your home and business' },
-                { label: '3.2m Ceiling Height', desc: 'Spacious interiors with premium living volume' },
-                { label: 'Fiber Optic Ready', desc: 'Business-grade data connectivity' },
-                { label: 'Mag 8 Resilience', desc: 'Earthquake-resistant construction' },
+                { label: '100% Power Back-up', desc: 'Uninterrupted power supply for your home and business', icon: Zap },
+                { label: '3.2m Ceiling Height', desc: 'Spacious interiors with premium living volume', icon: Maximize },
+                { label: 'Fiber Optic Ready', desc: 'Business-grade data connectivity', icon: Wifi },
+                { label: 'Mag 8 Resilience', desc: 'Earthquake-resistant construction', icon: Shield },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
@@ -124,34 +125,25 @@ const SohoConcept = () => {
                   className='flex gap-4'
                 >
                   <div className='flex-shrink-0'>
-                    <div className='relative flex items-center justify-center h-8 w-8'>
+                    <div className='relative flex items-center justify-center h-10 w-10'>
                       {/* Pulse Ring */}
                       <motion.div 
-                        className='absolute inset-0 rounded-full bg-accent/30'
+                        className='absolute inset-0 rounded-full bg-accent/20'
                         animate={{ 
-                          scale: [1, 1.4, 1],
-                          opacity: [0.3, 0, 0.3]
+                          scale: [1, 1.3, 1],
+                          opacity: [0.3, 0.1, 0.3]
                         }}
                         transition={{
-                          duration: 2,
+                          duration: 3,
                           repeat: Infinity,
                           ease: "easeInOut",
                           delay: idx * 0.4
                         }}
                       />
-                      {/* Inner Dot */}
-                      <motion.div 
-                        className='h-2.5 w-2.5 rounded-full bg-accent'
-                        animate={{ 
-                          scale: [1, 1.2, 1],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: idx * 0.4
-                        }}
-                      />
+                      {/* Icon Container */}
+                      <div className='relative z-10 flex items-center justify-center h-8 w-8 rounded-full bg-accent/10 border border-accent/20'>
+                        <item.icon className='h-4 w-4 text-accent' />
+                      </div>
                     </div>
                   </div>
                   <div>

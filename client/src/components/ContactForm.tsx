@@ -93,7 +93,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id='inquire' className='relative py-20 md:py-32 bg-gradient-to-b from-background via-background to-accent/5 overflow-hidden'>
+    <section id='inquire' className='relative py-12 md:py-32 bg-gradient-to-b from-background via-background to-accent/5 overflow-hidden'>
       <div className='container mx-auto'>
         <div className='grid md:grid-cols-2 gap-12 md:gap-16 items-start'>
           {/* Left: Contact Info */}
@@ -108,7 +108,7 @@ const ContactForm = () => {
               <div className='flex justify-start mb-6'>
                 <div className='h-1 w-16 bg-accent rounded-full' />
               </div>
-              <h2 className='text-4xl md:text-5xl lg:text-6xl font-serif text-foreground mb-4'>
+              <h2 className='text-3xl md:text-5xl lg:text-6xl font-serif text-foreground mb-4 leading-tight'>
                 Secure Your Unit Today
               </h2>
               <p className='text-lg text-muted-foreground mb-2'>

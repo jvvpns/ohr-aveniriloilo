@@ -192,7 +192,11 @@ const ScrollExpandHero = ({
       }
     };
 
-    if (!mediaFullyExpanded) {
+    // On mobile, only lock scroll if we are at the top and the hero hasn't expanded yet
+    // This prevents "trapping" the user if they want to scroll past it quickly.
+    const shouldLock = !mediaFullyExpanded && (!isMobileState || window.scrollY <= 10);
+    
+    if (shouldLock) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -222,8 +226,8 @@ const ScrollExpandHero = ({
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
-  const mediaWidth = 300 + scrollProgress * (isMobileState ? 650 : 1250);
-  const mediaHeight = 400 + scrollProgress * (isMobileState ? 200 : 400);
+  const mediaWidth = (isMobileState ? 240 : 300) + scrollProgress * (isMobileState ? 700 : 1250);
+  const mediaHeight = (isMobileState ? 320 : 400) + scrollProgress * (isMobileState ? 250 : 400);
 
   return (
     <div
@@ -264,8 +268,8 @@ const ScrollExpandHero = ({
                 style={{
                   width: `${mediaWidth}px`,
                   height: `${mediaHeight}px`,
-                  maxWidth: '95vw',
-                  maxHeight: '85vh',
+                  maxWidth: isMobileState ? '85vw' : '95vw',
+                  maxHeight: isMobileState ? '70vh' : '85vh',
                   boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.3)',
                 }}
               >
@@ -346,12 +350,12 @@ const ScrollExpandHero = ({
                 transition={{ duration: 0.2 }}
               >
                 {title && (
-                  <h1 className='text-5xl md:text-6xl lg:text-7xl font-serif text-white mb-4 leading-tight'>
+                  <h1 className='text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-4 leading-tight'>
                     {title}
                   </h1>
                 )}
                 {subtitle && (
-                  <p className='text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto'>
+                  <p className='text-lg md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto'>
                     {subtitle}
                   </p>
                 )}
